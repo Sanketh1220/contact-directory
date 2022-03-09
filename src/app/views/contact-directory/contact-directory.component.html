@@ -1,0 +1,36 @@
+<div class="row ml-2">
+    <div>
+        <button style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;" mat-raised-button color="primary" (click)="openModal();">Add Contact</button>
+    </div>
+    <div class="ml-5 col-6">
+        <!-- <h2 style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;">Search Bar is on way</h2>  -->
+        <div style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;" class="search-hero">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search by first name, last name, email, phone, address, phone">
+        </div>
+    </div>
+</div>
+<div *ngIf="contacts.length == 0" class="jumbotron">
+    <div class="text-center">
+        No Data
+    </div>
+</div>
+<div *ngIf="contacts.length != 0" class="jumbotron">
+    <div class="row">
+        <div class="col-3" *ngFor="let contact of contacts | filter:searchText">
+            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                <div class="card-header">
+                    <h1>{{ contact.lname }}, {{ contact.fname }} {{ contact.mname }}</h1>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Phone: {{ contact.telnum }}</p>
+                    <p class="card-text">Email: {{ contact.email }}</p>
+                    <p class="card-text">Address: {{ contact.address }}</p>
+                </div>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-secondary mr-3" (click)="editContact(contact)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="confirmDelete(contact)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

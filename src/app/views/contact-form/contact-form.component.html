@@ -1,0 +1,60 @@
+<mat-toolbar style="margin-bottom: 10px;" color="primary">
+    <span>Contact Form</span>
+</mat-toolbar>
+<form [formGroup]="contactForm" class="example-form" (submit)="onSubmit()">
+    <div class="row m-1">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="enter first name" formControlName="fname" required>
+                <mat-error>Enter a valid first name</mat-error>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Middle Name</mat-label>
+                <input matInput placeholder="enter middle name" formControlName="mname" >
+                <mat-error>Enter a valid middle name</mat-error>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="enter last name" formControlName="lname" required>
+                <mat-error>Enter a valid last name</mat-error>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="enter address" formControlName="address" required>
+                <mat-error>Enter a valid address</mat-error>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="enter phone numner" formControlName="telnum" required>
+                <mat-error>Enter a valid phone</mat-error>
+                <mat-icon matSuffix>phone_enabled</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+                <mat-error>Enter a valid email</mat-error>
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+        <div style="margin-left: 50%;" class="row col-md-3 m-1">
+            <button class="row btn btn-primary" >Add Contact</button>
+            <button (click)="activeModal.close()" class="ml-4 row btn btn-danger" >Close</button>
+        </div>
+    <!-- </div> -->
+</form>
